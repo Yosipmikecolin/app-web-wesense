@@ -26,7 +26,10 @@ interface SidebarProps {
 export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
   const pathname = usePathname();
   const [isMobile, setIsMobile] = useState(false);
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
+  const userName = user?.nombreCompleto || "Usuario";
+  const userEmail = user?.email || "correo@empresa.com";
+  const userInitial = userName.charAt(0).toUpperCase();
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -156,16 +159,19 @@ export default function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
           <div className="mt-4 pt-4 border-t border-gray-200">
             <div className="flex items-center p-2">
               <div className="w-10 h-10 rounded-full bg-gray-200 shrink-0">
-                <div className="w-10 h-10 bg-[#00a651] text-white rounded-full flex justify-center items-center">
-                  O
+                <div className="w-10 h-10 bg-[#00a651] text-white rounded-full flex justify-center items-center font-bold">
+                  {userInitial}
                 </div>
               </div>
               <div className="ml-3 flex-1 overflow-hidden">
-                <p className="font-medium truncate">Omar Bergson</p>
-                <p className="text-sm text-gray-500 truncate">omarb@mail.com</p>
+                <p className="font-medium truncate">{userName}</p>
+                <p className="text-sm text-gray-500 truncate">{userEmail}</p>
               </div>
-              <button className="p-1 text-gray-500 hover:text-gray-700">
-                <LogOut size={18} onClick={handleLogout} />
+              <button
+                className="p-1 text-gray-500 hover:text-gray-700 cursor-pointer"
+                onClick={handleLogout}
+              >
+                <LogOut size={18} />
               </button>
             </div>
           </div>
