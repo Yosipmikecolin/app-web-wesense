@@ -10,6 +10,8 @@ import { Label } from "@/components/ui/label";
 import { Lock, Mail, Eye, EyeOff, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth-context";
+import Logo from "/logo.png";
+import Image from "next/image";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -42,9 +44,13 @@ function LoginForm() {
       <div className="hidden lg:flex lg:w-1/2 flex-col justify-between p-12 bg-emerald-600 text-[hsl(0,0%,100%)]">
         <div>
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-800">
-              <MapPin className="h-5 w-5 text-[hsl(0,0%,100%)]" />
-            </div>
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={50}
+              height={50}
+              className="h-10 w-10 text-[hsl(0,0%,100%)]"
+            />
             <span className="text-xl font-semibold tracking-tight">SGAMGC</span>
           </div>
         </div>
@@ -58,9 +64,9 @@ function LoginForm() {
           </p>
           <div className="flex flex-col gap-4 pt-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-green-700">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-green-200">
                 <svg
-                  className="h-4 w-4 text-white"
+                  className="h-4 w-4 text-green-600"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -78,9 +84,9 @@ function LoginForm() {
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-green-700">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-green-200">
                 <svg
-                  className="h-4 w-4 text-white"
+                  className="h-4 w-4 text-green-600"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -98,9 +104,9 @@ function LoginForm() {
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-green-700">
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-green-200">
                 <svg
-                  className="h-4 w-4 text-white"
+                  className="h-4 w-4 text-green-600"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
